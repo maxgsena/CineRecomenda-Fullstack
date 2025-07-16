@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela inicial</title>
+    <link rel="stylesheet" href="./styles/tela-inicial.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <h1>CineRecomenda</h1>
+        <div class="buttons"> <!-- VAO SER BOTOES -->
+            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </header>
+    <main>
+        <div class="categoria">
+            <h2 class="titulo">
+                Ação
+            </h2>
+            <div class="card">
+                <a href=""></a>
+                <div>
+        <a href="#" id="openButton"><img src="img/sherlock.jpg" alt=""></a>
+
+        <dialog id="modalDialog">
+            <h2>Descrição</h2>
+            <button id="closeButton">Fechar</button>
+        </dialog>
+
+        <script>
+            const dialog = document.querySelector('#modalDialog');
+            const openButton = document.querySelector('#openButton'); 
+            const closeButton = document.querySelector('#closeButton');
+
+            openButton.addEventListener('click', (e) => {
+                dialog.showModal();
+            });
+            closeButton.addEventListener('click', (e) => {
+            dialog.close(); 
+            });
+
+            dialog.addEventListener('click', (event) => {
+                const rect = dialog.getBoundingClientRect();
+                if (
+                    event.clienitX < rect.left ||
+                    event.clientX > rect.right ||
+                    event.clientY < rect.top ||
+                    event.clientY > rect.bottom
+                ) {
+                    dialog.close();
+                }   
+            });
+        </script>
+    </div>
+            </div>
+        </div>
+        <div class="categoria">
+            <h2 class="titulo">
+                Terror
+            </h2>
+            <div class="card">
+                <a href=""></a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright ®</p>
+    </footer>
+</body>
+</html>

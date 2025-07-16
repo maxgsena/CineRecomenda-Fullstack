@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Cabin", sans-serif;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("/img/background.jpg");
+    background-size: cover;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #292929;
+    padding: 5rem;
+    border-radius: 10%;
+}
+
+.formLogin h1 {
+    font-size: 2.5rem;
+    color: #05A;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px black;
+}
+
+.formLogin label {
+    color: white;
+}
+
+.formLogin input {
+    border: 2px solid #05A;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 0.2rem;
+    height: 1.8rem;
+}
+
+.formLogin button {
+    background-color: #05A;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.2rem;
+    font-size: 1rem;
+    margin-top: 0.6rem;
+}
+
+.formLogin button:hover {
+    background-color: white;
+}

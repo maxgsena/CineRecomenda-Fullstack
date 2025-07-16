@@ -1,0 +1,123 @@
+.detalhe-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.detalhe-container h1 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 30px;
+}
+
+.detalhe-content p {
+    line-height: 1.6;
+    color: #333;
+}
+
+.avaliacoes-section {
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.avaliacoes-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.avaliacao-card {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid #007bff;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.avaliacao-card p {
+    margin: 5px 0;
+}
+
+.avaliacao-card strong {
+    color: #222;
+}
+
+.generos-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.genero-tag {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 8px;
+    margin-top: 8px;
+    font-size: 0.9em;
+}
+
+/* Adicione este código ao final do seu FilmeDetalhe.css */
+
+.avaliacao-form {
+    background: #fdfdfd;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.avaliacao-form h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.avaliacao-form button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.avaliacao-form button:hover {
+    background-color: #218838;
+}
+
+.lista-avaliacoes {
+    margin-top: 20px;
+}

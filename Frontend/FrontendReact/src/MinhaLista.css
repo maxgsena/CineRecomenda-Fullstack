@@ -1,0 +1,81 @@
+.minha-lista-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.minha-lista-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.lista-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.item-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fff;
+}
+
+.item-card h2 {
+    margin-top: 0;
+}
+
+.estado-tag {
+    background-color: #007bff;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.minha-lista-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Para telas pequenas */
+}
+
+.pdf-download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5a6268;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.pdf-download-button:hover {
+    background-color: #494e53;
+}
+.action-button, .details-link {
+    display: block;
+    width: 100%; 
+    text-align: center;
+    padding: 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: bold;
+    box-sizing: border-box; 
+}
+
+.action-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.details-link {
+    background-color: #6c757d;
+    color: white;
+}
