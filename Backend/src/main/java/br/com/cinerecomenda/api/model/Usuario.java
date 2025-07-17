@@ -18,7 +18,7 @@ public class Usuario {
     private String email;
     private String senha;
     private String generoPref;
-    private String role;
+    private String role = "USER";
 
     @OneToMany(mappedBy = "usuario")
     @JsonIgnore

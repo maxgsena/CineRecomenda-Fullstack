@@ -2,8 +2,10 @@ package br.com.cinerecomenda.api;
 
 import br.com.cinerecomenda.api.model.Filme;
 import br.com.cinerecomenda.api.model.Genero;
+import br.com.cinerecomenda.api.model.Usuario; // Importe a entidade Usuario
 import br.com.cinerecomenda.api.repository.FilmeRepository;
 import br.com.cinerecomenda.api.repository.GeneroRepository;
+import br.com.cinerecomenda.api.repository.UsuarioRepository; // Importe o repositório de Usuario
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -20,13 +22,31 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     private GeneroRepository generoRepository;
 
+    // --- NOVA DEPENDÊNCIA ---
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
     @Override
     public void run(String... args) throws Exception {
 
-        if (filmeRepository.count() == 0) {
-            System.out.println("--- BANCO DE DADOS VAZIO. INICIANDO POPULAÇÃO DE DADOS INICIAIS ---");
+        // --- NOVA LÓGICA PARA CRIAR O ADMIN ---
+        // Verifica se o usuário admin já existe pelo email
+        if (usuarioRepository.findByEmail("admin@cinerecomenda.com").isEmpty()) {
+            System.out.println("--- CRIANDO USUÁRIO ADMIN PADRÃO ---");
+            Usuario admin = new Usuario();
+            admin.setNome("Administrador");
+            admin.setEmail("admin@cinerecomenda.com");
+            // Em um app real, esta senha seria criptografada (hashed)
+            admin.setSenha("admin123");
+            admin.setRole("ADMIN");
+            usuarioRepository.save(admin);
+            System.out.println("--- USUÁRIO ADMIN CRIADO ---");
+        }
 
-            // 1. Criar e salvar os Gêneros primeiro
+        // A lógica para popular filmes se a tabela estiver vazia continua a mesma
+        if (filmeRepository.count() == 0) {
+            System.out.println("--- BANCO DE DADOS VAZIO. POPULANDO DADOS INICIAIS DE FILMES E GÊNEROS ---");
+
             Genero acao = new Genero();
             acao.setNome("Ação");
             generoRepository.save(acao);
@@ -35,26 +55,13 @@ public class DataInitializer implements CommandLineRunner {
             ficcao.setNome("Ficção Científica");
             generoRepository.save(ficcao);
 
-            Genero drama = new Genero();
-            drama.setNome("Drama");
-            generoRepository.save(drama);
-
-            // 2. Criar e salvar os Filmes, já associando os gêneros
             Filme filme1 = new Filme();
             filme1.setNome("Matrix");
-            filme1.setAnoLanc(new Date()); // Exemplo com data atual
-            filme1.setSinopse("Um hacker descobre que a realidade é uma simulação e se junta a uma rebelião.");
+            filme1.setAnoLanc(new Date());
+            filme1.setSinopse("Um hacker descobre que a realidade é uma simulação.");
             filme1.setDuracao("02:16:00");
-            filme1.setGeneros(Set.of(acao, ficcao)); // Associa os gêneros
+            filme1.setGeneros(Set.of(acao, ficcao));
             filmeRepository.save(filme1);
-
-            Filme filme2 = new Filme();
-            filme2.setNome("Clube da Luta");
-            filme2.setAnoLanc(new Date());
-            filme2.setSinopse("Um homem deprimido que sofre de insônia conhece um vendedor de sabão e juntos formam um clube clandestino.");
-            filme2.setDuracao("02:19:00");
-            filme2.setGeneros(Set.of(drama)); // Associa o gênero
-            filmeRepository.save(filme2);
 
             System.out.println("--- DADOS INICIAIS CADASTRADOS COM SUCESSO ---");
         } else {
