@@ -3,6 +3,7 @@ package br.com.cinerecomenda.api.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,6 +21,14 @@ public class Filme {
     private Date anoLanc;
     private String sinopse;
     private String duracao;
+    private String posterFileName;
+
+    // Campo calculado dinamicamente, não salvo no banco
+    @Transient
+    public String getPosterUrl() {
+        if (posterFileName == null || posterFileName.isEmpty()) return null;
+        return "/images/" + posterFileName;
+    }
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(

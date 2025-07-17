@@ -1,26 +1,38 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from './context/AuthContext'; // Importa nosso hook de autenticação
+import { useAuth } from './context/AuthContext';
 import './Navbar.css';
 
 function Navbar() {
-    const { logout } = useAuth(); // Pega a função de logout do nosso contexto
+    // 1. Pega não só o logout, mas também o currentUser do nosso contexto
+    const { currentUser, logout } = useAuth();
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        logout(); // Limpa os dados do usuário no contexto
-        navigate('/login'); // Redireciona o usuário para a página de login
+        logout();
+        navigate('/login');
     };
 
     return (
         <nav className="navbar">
             <Link to="/" className="nav-brand">CineRecomenda</Link>
+            
             <div className="nav-links">
+                {/* 2. Adiciona a mensagem de boas-vindas */}
+                {currentUser && (
+                    <span className="welcome-message">
+                        Bem-vindo, {currentUser.nome}!
+                    </span>
+                )}
+
                 <Link to="/" className="nav-link">Home</Link>
                 <Link to="/minha-lista" className="nav-link">Minha Lista</Link>
                 <Link to="/relatorio" className="nav-link">Relatório</Link>
-                
-                {/* NOVO BOTÃO DE LOGOUT */}
+
+                {currentUser && currentUser.role === 'ADMIN' && (
+                    <Link to="/admin/add-film" className="nav-link-admin">Adicionar Filme</Link>
+                )}
+
                 <button onClick={handleLogout} className="logout-button">
                     Sair
                 </button>

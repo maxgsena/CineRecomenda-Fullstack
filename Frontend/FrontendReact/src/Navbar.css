@@ -35,3 +35,15 @@
 .logout-button:hover {
     background-color: #c82333;
 }
+.nav-link-admin {
+    background-color: #ffc107;
+    color: #212529;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.welcome-message {
+    margin-right: auto; /* Isso empurra a mensagem para a esquerda e os links para a direita */
+    padding-left: 20px;
+    font-style: italic;
+}

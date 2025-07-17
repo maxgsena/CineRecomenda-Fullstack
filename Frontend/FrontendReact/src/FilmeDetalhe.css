@@ -121,3 +121,16 @@
 .lista-avaliacoes {
     margin-top: 20px;
 }
+.admin-upload-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fffbe6;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+}
+.filme-detalhe-poster {
+    max-width: 300px;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 8px;
+}
